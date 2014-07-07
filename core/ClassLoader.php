@@ -10,12 +10,12 @@ class ClassLoader
 {
     protected $dirs;
 
-    public function regsiter()
+    public function register()
     {
         sql_autoload_register(array($this, 'loadClass'));
     }
 
-    public function regsiterDir($dir)
+    public function registerDir($dir)
     {
         $this->dirs[]= $dir;
     }
