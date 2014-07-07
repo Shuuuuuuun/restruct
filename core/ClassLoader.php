@@ -12,7 +12,7 @@ class ClassLoader
 
     public function register()
     {
-        sql_autoload_register(array($this, 'loadClass'));
+        spl_autoload_register(array($this, 'loadClass'));
     }
 
     public function registerDir($dir)
@@ -22,7 +22,7 @@ class ClassLoader
 
     public function loadClass($class)
     {
-        foreach($this->dris as $dir){
+        foreach($this->dirs as $dir){
             $file = $dir . '/' . $class . '.php';
             if(is_readable($file)){
                 require $file;
